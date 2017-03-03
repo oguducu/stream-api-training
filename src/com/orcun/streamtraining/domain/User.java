@@ -1,5 +1,9 @@
 package com.orcun.streamtraining.domain;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.orcun.streamtraining.util.StreamConstans.Language;
 import com.orcun.streamtraining.util.StreamConstans.Title;
 
 
@@ -11,9 +15,10 @@ public class User {
 	private Title title;
 	private boolean isVegetarian;
 	private int startYear;
+	private List<Language> languages;
 	
 	public User(String name,String surname,int age,double salary, 
-			Title title, boolean isVegetarian,int startYear) {
+			Title title, boolean isVegetarian,int startYear,Language[] languages) {
 		this.name = name;
 		this.surname = surname;
 		this.age = age;
@@ -21,6 +26,7 @@ public class User {
 		this.title = title;
 		this.isVegetarian = isVegetarian;
 		this.startYear = startYear;
+		this.languages = Arrays.asList(languages);
 	}
 	
 	public String getName() {
@@ -45,6 +51,10 @@ public class User {
 
 	public int getStartYear() {
 		return startYear;
+	}
+
+	public List<Language> getLanguages() {
+		return languages;
 	}
 
 	@Override

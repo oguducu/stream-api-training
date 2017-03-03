@@ -9,6 +9,12 @@ public class StreamConstans {
 		PROJECT_LEADER
 	}
 	
+	public enum Language {
+		ENGILISH,
+		GERMAN,
+		TURKISH
+	}
+	
 	public enum ProcessType {
 		STREAM,
 		FOREACH

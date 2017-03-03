@@ -23,7 +23,10 @@ import com.orcun.streamtraining.training.TrainingB6;
 import com.orcun.streamtraining.training.TrainingB7;
 import com.orcun.streamtraining.training.TrainingB8;
 import com.orcun.streamtraining.training.TrainingB9;
-import com.orcun.streamtraining.util.StreamConstans.ProcessType;
+import com.orcun.streamtraining.training.TrainingC1;
+import com.orcun.streamtraining.training.TrainingC3;
+import com.orcun.streamtraining.training.TrainingC4;
+import com.orcun.streamtraining.util.StreamConstans.Language;
 import com.orcun.streamtraining.util.StreamConstans.Title;
 
 public class Application {
@@ -141,6 +144,21 @@ public class Application {
 		print("B9 V1",trainingB9.groupEngineersByIsVegetarianV1(userList));
 		print("B9 V2",trainingB9.groupEngineersByIsVegetarianV2(userList));
 		System.out.println();
+		
+
+		TrainingC1 trainingC1 = new TrainingC1();
+		print("C1 V1",trainingC1.countEmployeesOfTitlesV1(userList));
+		print("C1 V2",trainingC1.countEmployeesOfTitlesV2(userList));
+		System.out.println();
+		
+		TrainingC3 trainingC3 = new TrainingC3();
+		print("C3 V1",trainingC3.getLanguagesKnownV1(userList));
+		print("C3 V2",trainingC3.getLanguagesKnownV2(userList));
+		System.out.println();
+		
+		TrainingC4 trainingC4 = new TrainingC4();
+		print("C4 V1",trainingC4.getUserWhoEarnsHighSalaryAmongUsers(userList));
+		System.out.println();
 	}
 	
 	private static <T> void print(String trainingCode,T t) {
@@ -154,14 +172,14 @@ public class Application {
 		userList = new ArrayList<>();
 		questionList = new ArrayList<>();
 		
-		userList.add(new User("Jane","Lawrence",21,5600,Title.SOFTWARE_ENGINEER,true,2011));
-		userList.add(new User("Kate","Winston",23,6560,Title.ACCOUNTED,false,2012));
-		userList.add(new User("John","Gordan",25,3500,Title.SECURTY,true,2013));
-		userList.add(new User("Kate","Marvel",29,8000,Title.POD_LEADER,false,2011));
-		userList.add(new User("Jane","Marvel",32,8000,Title.PROJECT_LEADER,true,2010));
-		userList.add(new User("Visnu","Sarej",22,4000,Title.SOFTWARE_ENGINEER,false,2008));
-		userList.add(new User("Mike","Denis",21,3500,Title.SOFTWARE_ENGINEER,true,2011));
-		userList.add(new User("Rajess","Visnu",22,4000,Title.SOFTWARE_ENGINEER,true,2009));
+		userList.add(new User("Jane","Lawrence",21,5600,Title.SOFTWARE_ENGINEER,true,2011,new Language[]{Language.ENGILISH,Language.GERMAN}));
+		userList.add(new User("Kate","Winston",23,6560,Title.ACCOUNTED,false,2012,new Language[]{Language.ENGILISH,Language.TURKISH}));
+		userList.add(new User("John","Gordan",25,3500,Title.SECURTY,true,2013,new Language[]{Language.ENGILISH}));
+		userList.add(new User("Kate","Marvel",29,8000,Title.POD_LEADER,false,2011,new Language[]{Language.GERMAN}));
+		userList.add(new User("Jane","Marvel",32,8000,Title.PROJECT_LEADER,true,2010,new Language[]{Language.TURKISH}));
+		userList.add(new User("Visnu","Sarej",22,4000,Title.SOFTWARE_ENGINEER,false,2008,new Language[]{Language.GERMAN}));
+		userList.add(new User("Mike","Denis",21,3500,Title.SOFTWARE_ENGINEER,true,2011,new Language[]{Language.ENGILISH}));
+		userList.add(new User("Rajess","Visnu",22,4000,Title.SOFTWARE_ENGINEER,true,2009,new Language[]{Language.ENGILISH}));
 		
 		questionList.add(new Question(1,"What is lambda?",1));
 		questionList.add(new Question(2,"What is stream?",1));
