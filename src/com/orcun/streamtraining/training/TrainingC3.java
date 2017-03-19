@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 import com.orcun.streamtraining.domain.User;
 import com.orcun.streamtraining.util.StreamConstans.Language;
-import com.orcun.streamtraining.util.StreamConstans.Title;
 
 /*
  * Get (distinct) list of languages  known by the users

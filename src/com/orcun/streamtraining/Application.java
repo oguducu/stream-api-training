@@ -24,6 +24,7 @@ import com.orcun.streamtraining.training.TrainingB7;
 import com.orcun.streamtraining.training.TrainingB8;
 import com.orcun.streamtraining.training.TrainingB9;
 import com.orcun.streamtraining.training.TrainingC1;
+import com.orcun.streamtraining.training.TrainingC2;
 import com.orcun.streamtraining.training.TrainingC3;
 import com.orcun.streamtraining.training.TrainingC4;
 import com.orcun.streamtraining.util.StreamConstans.Language;
@@ -33,9 +34,16 @@ public class Application {
 	private static List<User> userList;
 	private static List<Question> questionList;
 	
+	public void test(List<?> a) {
+		
+	}
+	
 	public static void main(String[] args) {
 		setData();
-		
+		int test1 = Integer.MAX_VALUE-100;
+		int test2 = 101;
+		int sum = test2+test1;
+		System.out.println(sum);
 		TrainingA1 trainingA1 = new TrainingA1();
 		print("A1 V1",trainingA1.getVegetarianUserV1(userList));
 		print("A1 V2",trainingA1.getVegetarianUserV2(userList));
@@ -151,13 +159,19 @@ public class Application {
 		print("C1 V2",trainingC1.countEmployeesOfTitlesV2(userList));
 		System.out.println();
 		
+		TrainingC2 trainingC2 = new TrainingC2();
+		print("C2 V1",trainingC2.findMaxSalaryOfEveryTitleV1(userList));
+		print("C2 V2",trainingC2.findMaxSalaryOfEveryTitleV2(userList));
+		System.out.println();
+		
 		TrainingC3 trainingC3 = new TrainingC3();
 		print("C3 V1",trainingC3.getLanguagesKnownV1(userList));
 		print("C3 V2",trainingC3.getLanguagesKnownV2(userList));
 		System.out.println();
 		
 		TrainingC4 trainingC4 = new TrainingC4();
-		print("C4 V1",trainingC4.getUserWhoEarnsHighSalaryAmongUsers(userList));
+		print("C4 V1",trainingC4.getUserWhoEarnsHighSalaryAmongUsersV1(userList));
+		print("C4 V2",trainingC4.getUserWhoEarnsHighSalaryAmongUsersV2(userList));
 		System.out.println();
 	}
 	

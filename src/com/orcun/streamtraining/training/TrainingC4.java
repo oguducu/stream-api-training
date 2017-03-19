@@ -1,21 +1,17 @@
 package com.orcun.streamtraining.training;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import com.orcun.streamtraining.domain.User;
 import com.orcun.streamtraining.util.StreamConstans.Language;
-import com.orcun.streamtraining.util.StreamConstans.Title;
 
 /*
  * Get user who knows English and has the highest salary among the users who knows English
  */
 public class TrainingC4 {
 	//With for
-	public User getUserWhoEarnsHighSalaryAmongUsers(List<User> userList) {
+	public User getUserWhoEarnsHighSalaryAmongUsersV1(List<User> userList) {
 		User highestEarningUser = null;
 		for(User user:userList) {
 			boolean knowsEnglish = user.getLanguages().contains(Language.ENGILISH);
@@ -30,7 +26,10 @@ public class TrainingC4 {
 	}
 	
 	//With stream
-	public List<Language> getLanguagesKnownV2(List<User> userList) {
-		return null;
+	public User getUserWhoEarnsHighSalaryAmongUsersV2(List<User> userList) {
+		return userList.stream().filter(
+				user->user.getLanguages().stream()
+				.anyMatch(language->language.equals(Language.ENGILISH)))
+				.max(Comparator.comparing(User::getSalary)).get();
 	}
 }

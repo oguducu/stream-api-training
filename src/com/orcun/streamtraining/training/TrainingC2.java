@@ -1,8 +1,10 @@
 package com.orcun.streamtraining.training;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.orcun.streamtraining.domain.User;
 import com.orcun.streamtraining.util.StreamConstans.Title;
@@ -29,7 +31,13 @@ public class TrainingC2 {
 	}
 	
 	//With stream
-	public Map<Title,Long> findMaxSalaryOfEveryTitleV2(List<User> userList) {
-		return null;
+	public Map<Title,Double> findMaxSalaryOfEveryTitleV2(List<User> userList) {
+		return (Map<Title,Double>) userList.stream()
+				.collect(Collectors.groupingBy(User::getTitle,
+						Collectors.collectingAndThen(
+								Collectors.maxBy(Comparator.comparingDouble(User::getSalary)),
+								user->user.get().getSalary())
+								));
+
 	}
 }
